@@ -1,0 +1,4 @@
+% aws, s3
+
+# sum number of files & file sizes
+aws s3 ls <s3_url> --human --recursive --sum
