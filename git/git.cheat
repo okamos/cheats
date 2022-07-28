@@ -1,0 +1,7 @@
+% git, common
+
+# change current directory to repository root
+cd $(git rev-parse --show-toplevel)
+
+# change current directory to repositories directory
+cd $(ghq list -p | fzf --reverse)

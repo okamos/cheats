@@ -1,4 +1,10 @@
-% aws, s3
+% aws-s3, common
 
-# sum number of files & file sizes
-aws s3 ls <s3_url> --human --recursive --sum
+# show files in bucket
+aws-vault exec <aws_profile> -- aws s3 ls s3://<s3_bucket>/
+
+# sum number of files & file sizes(recursive)
+aws-vault exec <aws_profile> -- aws s3 ls s3://<s3_bucket>/<s3_url> --human --recursive --sum
+
+$ aws_profile: aws-vault list --- --column 1 --header-lines 2 --delimiter '\s\s+'
+$ s3_bucket: aws-vault exec <aws_profile> -- aws s3 ls --- --column 3 --delimiter '\s+'

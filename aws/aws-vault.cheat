@@ -1,0 +1,6 @@
+% aws-vault, common
+
+# rotate key
+aws-vault rotate -n <aws_profile>
+
+$ aws_profile: aws-vault list --- --column 1 --header-lines 2 --delimiter '\s\s+'
