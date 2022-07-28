@@ -3,5 +3,8 @@
 # change current directory to repository root
 cd $(git rev-parse --show-toplevel)
 
+# push the HEAD to remote
+git push origin "HEAD:<branch>"
+
 # change current directory to repositories directory
 cd $(ghq list -p | fzf --reverse)
