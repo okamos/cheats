@@ -6,5 +6,10 @@ aws-vault exec <aws_profile> -- aws s3 ls s3://<s3_bucket>/
 # sum number of files & file sizes(recursive)
 aws-vault exec <aws_profile> -- aws s3 ls s3://<s3_bucket>/<s3_url> --human --recursive --sum
 
+# create restricted bucket
+aws-vault exec <aws_profile> -- aws s3api create-bucket --bucket <bucket_name> --create-bucket-configuration LocationConstraint=<region>
+aws-vault exec <aws_profile> -- aws s3api put-public-access-block --bucket <bucket_name> --public-access-block-configuration "BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true"
+aws-vault exec <aws_profile> -- aws s3api put-bucket-ownership-controls --bucket <bucket_name> --ownership-controls Rules='[{ObjectOwnership=BucketOwnerEnforced}]'
+
 $ aws_profile: aws-vault list --- --column 1 --header-lines 2 --delimiter '\s\s+'
 $ s3_bucket: aws-vault exec <aws_profile> -- aws s3 ls --- --column 3 --delimiter '\s+'

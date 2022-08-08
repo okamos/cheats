@@ -1,0 +1,7 @@
+% terraform
+
+# apply target specific resources
+terraform apply -target <resource>
+
+# reconfigure option disregards any existing configuration
+terraform init -reconfigure

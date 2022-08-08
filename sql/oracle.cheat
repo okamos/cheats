@@ -1,0 +1,12 @@
+% oracle, common
+
+# set column format
+echo "column <column> format a<size>"
+
+# get table index
+cat << EOF
+SELECT *
+FROM ALL_INDEXES
+WHERE TABLE_NAME = '<table_name>'
+ORDER BY INDEX_NAME;
+EOF
