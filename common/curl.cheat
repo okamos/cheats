@@ -1,0 +1,13 @@
+% common, curl
+
+# request HEAD method
+curl -I "<url>"
+
+# request with header
+curl -H '<name>:<value>' "<url>"
+
+# authorize basic
+curl -u <user>:<password> "<url>"
+
+# set minimum acceptable TLS version(tls-max). acceptable version is set by tlsv1.0, tlsv1.1, tlsv1.2, tlsv1.3
+curl --tls-max <tls_version> -v --head "<url>"
